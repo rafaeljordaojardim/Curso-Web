@@ -8,3 +8,4 @@ console.log(typeof new Cliente)//object
 class Produto{}
 console.log(typeof Produto)//function
 console.log(typeof new Produto)//object
+
