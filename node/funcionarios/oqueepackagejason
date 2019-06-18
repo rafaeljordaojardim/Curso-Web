@@ -1,0 +1,11 @@
+é um arquivo que descreve todas as dependencias
+descreve o projeto tambem
+
+package-lock-jason
+é mais descritivo, tem exatamente a versao que foi baixada das dependencias
+para quando for reinstalar, conseguir reinstalar o que foi usado nos testes
+
+
+npm i - instala todas as dependencias
+npm run nome do qarquivo starta
+e npm start tambem 
