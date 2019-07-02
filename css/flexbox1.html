@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #01</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+            margin: 5px;
+        }
+        
+        .big {
+            font-size: 1.5em;
+        }
+        /* main axiss padrao é o da linha */
+        /* da pra mudar o main axiss com flex-direction*/
+        
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row;
+            width: 50%;
+            flex-wrap: wrap;
+            /* flex-wrap serve para quebrar a linha */
+            flex-wrap: wrap-reverse;
+            flex-flow: row wrap;
+            height: 200px;
+            flex-flow: column-reverse wrap;
+            flex-flow: row wrap;
+            /* justificará a partir do start */
+            justify-content: flex-start;
+            justify-content: flex-end;
+            justify-content: center;
+            justify-content: space-around;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            /* cross axis */
+            height: 400px;
+            align-items: stretch;
+            /* alinhando pela base line */
+            align-items: baseline;
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: center;
+            /* mais de uma linha */
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container ">
+        <div class="">1</div>
+        <div class="">2</div>
+        <div class=" big">3</div>
+        <div class="">4</div>
+        <div class="">5</div>
+        <div class="">6</div>
+        <div class="">7</div>
+        <div class="">8</div>
+        <div class="">9</div>
+        <div class="">10</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

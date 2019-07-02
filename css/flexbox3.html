@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #03</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div{
+            border:solid 5px dodgerblue;
+            font-size: 40px;
+        }
+        .flex-container div{
+            box-sizing: border-box;
+        }
+        .flex-container{
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-container div{
+            /* definir o tamnho no sentido do main axis 
+                o flex-basis é mais forte
+            */
+            flex-basis: 100px;
+            width: 200px; /*vai perder*/
+        }
+        .flex-container div:nth-child(4){
+            /* grown shirnl basis */
+            flex: 3 6 100px;
+        }
+        .flex-container{
+            width: 300px;
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="">1</div>
+        <div class="">2</div>
+        <div class="">3</div>
+        <div class="">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

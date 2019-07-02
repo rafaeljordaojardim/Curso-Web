@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+        
+        .flex-container {
+            box-sizing: border-box;
+        }
+        
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 500px;
+        }
+        
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            order: 1;
+            order: 0;
+            order: -1;
+            /* elementos com uma ordem maior são exibidor por ultimo */
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch;
+        }
+        
+        .flex-container div {
+            width: 100px;
+            /* flex-grown logica para como vai crescer */
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+        
+        .flex-container div:nth-child(1) {
+            /* pega o elemento que foi definido */
+            flex-grow: 2;
+        }
+        
+        .flex-container {
+            width: 300px;
+            /* encole de forma uniforme */
+            flex-shrink: 1;
+        }
+        
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="">1</div>
+        <div class="">2</div>
+        <div class="">3</div>
+        <div class="">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>
