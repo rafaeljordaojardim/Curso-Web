@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+        item.onmousemove = e => {
+            const element = e.target //quem disparou no caso a propia div
+            element.style.cursor = 'move' //trocando o cursor para miver
+            if (e.buttons) { //sse estiver precionado ele fica verdadeiro
+                element.style.top = `${e.clientY - (element.clientHeight / 2)}px`
+                element.style.left = `${e.clientX - (element.clientWidth / 2)}px`
+
+            }
+        }
+    </script>
+</body>
