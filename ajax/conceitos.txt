@@ -1,0 +1,3 @@
+//multer - serve para o upload dos arquivos
+midware é uma função que sera executada dependendo da solicitação
+axious expecifico para o ajax
