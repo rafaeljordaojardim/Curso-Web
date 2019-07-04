@@ -1,0 +1,24 @@
+ferramenta para trabalhar com o build da aplicação
+automatizar os processos de traformações do arquivo para os arquivos finais
+ele otimiza os codigos para ficar o mais rápido possivel
+tranformar 20 arquivos em um só
+
+const concat = require('gulp-concat')serve para concatenar 
+arquivos em um só
+
+
+sempre colocar um gulpfile.js
+
+TypeScript-
+superset do javaScript ele tem umas coisas a mais como
+chegagem de tipos, tem que converter para js
+-tem interfaces, os tipos de variaveis ele é .ts
+
+scss é um preprocessador de css
+
+ //tirar espaços em branco, deixar o js deixar o mais pequeno possivel
+//muda nome de variaveis se precisar
+// const uglify = require('gulp-uglify')
+//transpire um arquivo para outro
+//tradução de uma lingua pra outra
+//babel converte o js para java script que é suportada pelos browers
