@@ -1,0 +1,13 @@
+body {
+    background-color: gray;
+    background-image: url(830cf771a26eea475aa5d58c33ca6562.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.botao {
+    background-color: #19B3E6;
+    color: #FFF;
+    font-size: 1.8em;
+}

@@ -1,0 +1,14 @@
+webpack, gerou um arquivo só, injetando o css diretamente na dom
+
+externizando o arquivo.css
+///////// plugins: [
+             new miniCssExtractPlugin({
+            //nome do arquivo que sera gerado a partir dos arquivos css
+            filename: "estilo.css"
+        })
+    ],
+
+assets são os recursos estaticos da aplicação
+
+
+build exclusico para produtcao e para desenvolvimento
