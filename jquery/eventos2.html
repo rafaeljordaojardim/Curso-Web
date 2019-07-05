@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #02</h1>
+    <div id='div1'>1</div>
+    <div id="resultado1">?</div>
+    <br>
+    <input type="text" placeholder="Digite e Selecione">
+    <div id="resultado2">?</div>
+    <script>
+        const alternarDestaque = () =>
+            $('#div1').toggleClass('destaque')
+            //hover ele chama a primeira funao quando entra e a 
+            //segunda quando sai
+            // $('#div1').on('mouseenter mouseleave', alternarDestaque)
+        $('#div1').hover(alternarDestaque, alternarDestaque)
+            //o evento é chamado apenas uma vez e depois é desregistrado 
+        $('#div1').one('mouseenter', e => alert('Aviso IMPORTANTE: onrigado!'))
+            //dois clicks some e volta
+        $('#div1').dblclick(e => $('#div1').fadeOut(1000).fadeIn(1000))
+
+        //evento de redimencionar a tela
+        $(window).resize(function(e) {
+                const l = $(window).width();
+                const a = $(window).height();
+                $('#resultado1').html(`largura:${l} e altura:${a}`)
+            })
+            //pegando um pedaco de um input
+        $(':input').select(e => {
+            const inicio = e.target.selectionStart
+            const fim = e.target.selectionEnd
+            $('#resultado2').html(e.target.value.substring(inicio, fim))
+        })
+    </script>
+</body>

@@ -1,0 +1,11 @@
+nao trabalha diretamente com objetos puro da dom
+é um objeto que dentro dele tem um objeto da dom
+que tem funções que permitem aplicar funões aos nos da dom
+pode usar $ ou jQuery
+
+ //extendendo a  jquery
+        $.fn.fundoverde = function() {
+            this.css('background-color', 'green')
+            return this //retorna o objeto para encadiar chamadas
+        }
+        $('body').fundoverde().fadeOut(1000)
