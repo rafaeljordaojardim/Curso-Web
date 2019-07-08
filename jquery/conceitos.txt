@@ -9,3 +9,20 @@ pode usar $ ou jQuery
             return this //retorna o objeto para encadiar chamadas
         }
         $('body').fundoverde().fadeOut(1000)
+
+//duas barras literais qualuqer conteudo no meio 
+                //e duas barras para fechar a flag g indica que 
+                //retornará um array
+                const expressoesComChaves = conteudo.match(/\{\{.+\}\}/g)
+eval - executa o que esta escrito e tranforma para 
+tranformar e ler js
+
+
+
+ $.extend({
+                mensagem: 'Em breve!',
+                horario: '23:59:59'
+            }, opcoes) //se não passar os valores ele pegará estes que eu setei aqui
+
+minutoDezena.html(diferenca[2][0])
+na expressao acima, pegase o indice dois e o digito um 

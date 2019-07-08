@@ -11,17 +11,35 @@
 <body class='conteudo exercicio'>
     <h1>Plugin #01</h1>
     <div>
-        {{ 1 + 2 }}
-        Texto 1
-        {{ 3 ** 3 }}
-        Texto 2
-        {{ console.log('Funcionou!') }}
-        Texto 3
-        {{ (function() { return 'Legal!!!' })() }}
-        Texto Final
+        {{ 1 + 2 }} Texto 1 {{ 3 ** 3 }} Texto 2 {{ console.log('Funcionou!') }} Texto 3 {{ (function() { return 'Legal!!!' })() }} Texto Final
     </div>
 
     <script>
-        // ...
+        // const $ = {
+        //         nome: 'não é o jQeury'
+        //     }
+        //plugin que garante a proteção da variavel dolar
+        (function($) {
+            //o nome do plugin é interpretar
+            $.fn.interpretar = function() {
+                const retirarChaves = s => s.substring(2, s.length - 2)
+                const conteudo = $(this).html()
+                    //duas barras literais qualuqer conteudo no meio 
+                    //e duas barras para fechar a flag g indica que 
+                    //retornará um array
+                const expressoesComChaves = conteudo.match(/\{\{.+\}\}/g)
+                const expressoes = expressoesComChaves.map(retirarChaves)
+                const resultados = expressoes.map(e => eval(e))
+
+                let conteudoFinal = conteudo
+                for (let i = 0; i < expressoesComChaves.length; i++) {
+                    conteudoFinal = conteudoFinal.replace(expressoesComChaves[i], resultados[i])
+                }
+                $(this).html(conteudoFinal)
+                return this
+            }
+        })(jQuery)
+
+        $('div').interpretar()
     </script>
 </body>
