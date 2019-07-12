@@ -24,7 +24,7 @@ module.exports = {
     },
     output: {
         filename: 'app.js',
-        path: __dirname + '/build'
+        path: __dirname + '/build/'
     },
     plugins: [
         new MiniCssExtractPlugin({ filename: 'estilo.css' }),
