@@ -1,0 +1,41 @@
+npm i  -g create-react-app é o modulo do node responsavel
+cria aplicaçao react e usa por baixo o webpack
+
+//função para reiderizar um elemento
+ReactDOM.render( <h1> React </h1>, document.getElementById('root'))
+
+/*
+    $('h1').html('react 2')
+    é criado semelhando ao codigo acima
+*/
+
+
+Não podem ter componentes com letra minuscula
+
+<div>
+        <h1>{props.nome} {props.sobrenome}</h1>
+        <h2>Filhos</h2>
+        <ul>
+            {/* <Filho nome="Prdro" sobrenome={props.sobrenome}/>
+            <Filho {...props}/>
+            <Filho {...props} nome="Carla"/> */}
+            {/* {props.children} */}
+            {
+                React.children.map(props.children, child =>{
+                    return React.cloneElement(child, {
+                        ...props, ...child.props
+                    })
+                })
+            }
+        </ul>
+    </div>
+
+  //  {`
+        //     // // a primeira é sempre aplicada
+        //     // button 
+        //     // ${props.operation ? 'operation' : ''}
+        //     // ${props.double ? 'double' : ''}
+        //     // ${props.triple ? 'triple' : ''} 
+        // `}
+import {HashRouter} from 'react-router-dom'
+navegação generica, 
