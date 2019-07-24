@@ -72,6 +72,11 @@ footer.footer{
             "content content"
             "footer footer"
     }
+    .table button{
+        width: 40px;
+       padding: 5px;
+       margin: 5px;
+    }
 }
 
 @media(max-width: 576px){
@@ -88,5 +93,10 @@ footer.footer{
             "content"
             "footer";
 
+    }
+    .table button{
+        width: 40px;
+       padding: 5px;
+       margin: 5px;
     }
 }
