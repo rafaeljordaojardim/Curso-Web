@@ -8,3 +8,6 @@ v-on:click="add" para quando o evento acontecer
 
        <button v-on:click="add">+ 1</button>
             <button @click="contador -= 2">- 2</button>
+
+             <!-- se for verdadeiro ele aplica-->
+    :class="{double, triple, operation}">
