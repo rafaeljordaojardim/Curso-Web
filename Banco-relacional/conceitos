@@ -1,0 +1,13 @@
+
+chave primaria 
+    ela é unica
+    não vazia
+    não muda (imutavel)
+
+Surrogate key - chave sintetica, algo artificial, nenhum significado
+para o cliente, valor gerado para ser unico
+
+natural key - pegar um cpf ou rg mais emissor 
+algo da pessoa para usar como chave primária.
+
+foreigh key - fk com unique, nao permite duplicidade
