@@ -1,0 +1,29 @@
+relacionando com o id do estado
+db.empresas.insert({
+... nome:"Bradesco",
+... estadoId: ObjectId("5d3f4aceae194536a0c07734")
+... })
+
+ db.empresas.find().pretty()
+{
+        "_id" : ObjectId("5d3f4b4fae194536a0c07735"),
+        "nome" : "Bradesco",
+        "estadoId" : ObjectId("5d3f4aceae194536a0c07734")
+}
+
+ db.empresas.insert({
+	nome:"vale",
+	cidadeId:ObjectId("5d3f4aceae194536a0c07733")
+})
+WriteResult({ "nInserted" : 1 })
+> db.empresas.find().pretty()
+{
+        "_id" : ObjectId("5d3f4b4fae194536a0c07735"),
+        "nome" : "Bradesco",
+        "estadoId" : ObjectId("5d3f4aceae194536a0c07734")
+}
+{
+        "_id" : ObjectId("5d3f4be7ae194536a0c07736"),
+        "nome" : "vale",
+        "cidadeId" : ObjectId("5d3f4aceae194536a0c07733")
+}

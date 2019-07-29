@@ -1,0 +1,25 @@
+Fazendo update com mongo
+db.estados.update({sigla: "SP" },{$set:{populacao:11}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+update de um atributo que nao tem
+> db.estados.update({sigla:"AL"},{$set: {cidades: [{nome:"Sergipe"}]}})
+	O SET ELE SETA NO CASO QUE AS CIDADES NAO EXISTE ELE FUNCIONA
+	MAS SE JA EXISTIR, TEM QUE FAZER UM PUSH
+
+> db.estados.update(
+	{sigla:"SP"},
+	{$push: {cidades:{nome:"Santos", populacao:45567}} }
+	)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+
+
+db.estados.update({sigla: "RJ"}, {$set:{populacao:16000000}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+
+// TRAZENDO SE HOUVER O ATRIBUTO POPULACAO
+db.estados.find({populacao:{$exists:true}}, {_id:0, nome:1})
+{ "nome" : "Alagoas" }
+{ "nome" : "São Paulo" }

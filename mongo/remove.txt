@@ -1,0 +1,30 @@
+REMOVENDO O ESTADO QUE TEM A SIGLA AC
+> db.estados.count()
+4
+> db.estados.remove({sigla:"AC"})
+WriteResult({ "nRemoved" : 1 })
+> db.estados.count()
+3
+
+REMOVENDO SE ALGUM ATRIBUTO EXISTIR E LIMITANDO A UM
+db.estados.remove({populacao:{$exists:true}}, 1)
+WriteResult({ "nRemoved" : 1 })
+
+ db.estados.remove({populacao:{$lt:15000000}})
+WriteResult({ "nRemoved" : 1 })
+> db.estados.find().pretty()
+{
+        "_id" : ObjectId("5d3f47edae194536a0c07730"),
+        "nome" : "Rio de janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Suldeste",
+        "cidades" : [
+                {
+                        "nome" : "Niterói",
+                        "area" : 139.9,
+                        "populacao" : 48762
+                }
+        ],
+        "populacao" : 16000000
+}
+>

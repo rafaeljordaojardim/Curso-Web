@@ -1,0 +1,22 @@
+
+bancos
+ Chave valor redis
+ Baseados em Documentos mongo db (json)
+ Baseado em grafo neo4j
+ Colum big table - familias de colunas
+
+//para suportar milhoes de requisições
+escalonamento vertical vs horizontal
+
+vertical - em cima de uma unica maquina, melhorar ela para crescer
+
+horizontal - separar os dados em maquinas diferentes nosql,
+armazenamentos nao estruturados, NoSQL
+
+Mongodb - baseado em documento - (json)
+	formato que armazenaremos no mongo
+	temos dentro do mongo db dentro de db temos as collection 
+	dentro de colections temos os docs
+é um banco sem esquema
+
+Há uma API para trabalhar com ele

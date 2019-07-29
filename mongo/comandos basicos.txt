@@ -1,0 +1,13 @@
+show dbs mostrar os bancos de dados
+
+use wm - ele usa um banco que nao foi criado ainda
+ou pode-se criar primeiro e depoous mudar
+
+db.createCollection('nome da coleção') //cria uma coleção
+
+show collections mostra as colecoes 
+
+ESTE BANCO É CASE SENSITIVE
+
+db.NomedaColeção.drop() excui o coleção
+

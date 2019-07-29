@@ -1,0 +1,41 @@
+INSERIR DADOS MONGO DB
+db.estados.insert({nome:"acre", sigla:"AC", regiao:"Norte"})
+WriteResult({ "nInserted" : 1 })
+db.estados.save({nome:"Alagoas",sigla:"AL",regiao:"Nordeste",populacao:3322000})
+BANCO SEM ESQUEMA pode colocar um atributo a mais ou a menos nele
+
+db.estados.insert({
+... nome : "Rio de janeiro",
+... sigla: "RJ",
+... regiao:"Suldeste",
+... cidades:[{
+	_id:ObjectId(),
+... 	nome:"Niterói",
+... 	area:139.9,
+... 	populacao:48762
+... 	}]
+... })
+
+> db.estados.insert({ 
+	nome:"São Paulo",
+	sigla: "SP", 
+	regiao: "Sudeste", 
+		cidades:[{ 
+			_id: ObjectId(), 
+			nome:"Campinas", 
+			area:795.7, 
+			prefeito:"Jonas Donizette", 
+			populacao:1081000},{
+			_id:ObjectId(), 
+			nome:"Guarulhos", 
+			populacao:1325000},{	
+			_id:ObjectId(),
+			nome:"Sorocaba",
+			distanciaCapital:87,
+			populacao:644919
+	}]
+})
+
+
+
+

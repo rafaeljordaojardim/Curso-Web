@@ -1,0 +1,145 @@
+-----------------------CONSULTAS-----------------------
+db.estados.find() // procura todos os registros em uma coleção
+db.estados.find().pretty() // em uma formato mais facil de ser ligo
+
+db.estados.findOne() //só assim tras o primeiro
+{
+        "_id" : ObjectId("5d3f0447ae194536a0c07729"),
+        "nome" : "acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+
+> db.estados.findOne({sigla:"RJ"}) //passando um filtro
+ou db.estados.find({sigla:"RJ"})
+{
+        "_id" : ObjectId("5d3f0693ae194536a0c0772b"),
+        "nome" : "Rio de janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Suldeste",
+        "cidades" : [
+                {
+                        "nome" : "Niterói",
+                        "area" : 139.9,
+                        "populacao" : 48762
+                }
+        ]
+}
+
+--------------FILTRO DE CONSULTA COM OPERADOR OR (OU)-----------------
+NO  LUGAR DO OR PODE SER AND
+ db.estados.find({$or:[{sigla:"RJ"},{sigla:"AC"}]}).pretty()
+{
+        "_id" : ObjectId("5d3f0447ae194536a0c07729"),
+        "nome" : "acre",
+        "sigla" : "AC",
+        "regiao" : "Norte"
+}
+{
+        "_id" : ObjectId("5d3f0693ae194536a0c0772b"),
+        "nome" : "Rio de janeiro",
+        "sigla" : "RJ",
+        "regiao" : "Suldeste",
+        "cidades" : [
+                {
+                        "nome" : "Niterói",
+                        "area" : 139.9,
+                        "populacao" : 48762
+                }
+        ]
+}
+ATRIBUTO ESTA CONTIDO OU NÃO {populacao:{$exists:true}}
+db.estados.find({populacao:{$exists:true}}).pretty()
+{
+        "_id" : ObjectId("5d3f04b5ae194536a0c0772a"),
+        "nome" : "Alagoas",
+        "sigla" : "AL",
+        "regiao" : "Nordeste",
+        "populacao" : 3322000
+}
+
+CONSULTAS PAGINADAS COM SKIP E LIMIT
+skip pula quantidade de valor passada e limit exibe quantos foi passado
+db.estados.find().skip(1).limit(2)
+
+QUANTOS ELEMENTOS TEM NA COLEÇÃO
+ db.estados.count()
+ retorno 4
+CONSULTA COM ESCOLHA DOS CAMPOS
+> db.estados.find({ sigla: "SP" }, { nome:1, sigla:1}).pretty()
+{
+        "_id" : ObjectId("5d3f1258ae194536a0c0772f"),
+        "nome" : "São Paulo",
+        "sigla" : "SP"
+}
+> db.estados.find({ sigla: "SP" }, { nome:1, sigla:1, _id:0}).pretty()
+{ "nome" : "São Paulo", "sigla" : "SP" }
+>
+
+CONSULTANDO AS CIDADES NO ESTADO DE SP
+> db.estados.find({sigla:"SP"}, {"cidades.nome":1, _id:0}).pretty()
+{
+        "cidades" : [
+                {
+                        "nome" : "Campinas"
+                },
+                {
+                        "nome" : "Guarulhos"
+                },
+                {
+                        "nome" : "Sorocaba"
+                }
+        ]
+}
+
+-------------CONSULTAS AGREGADAS COM AGREGATE--------------
+Usando pipeline de agragação
+//com um estagio de agragação
+db.estados.aggregate([
+     { $project: {nome:1, "cidades.nome":1, _id:0} }
+])
+
+//é colocado o $ pois queremos o resultado e nao o atributo
+por exemplo, queremos o 2000 ou 3000 etc
+sempre que e do lado direto do chave valor
+db.estados.aggregate([
+   {$project:{populacao: {$sum: "$cidades.populacao"}, sigla:1, _id:0} }
+])
+
+db.estados.aggregate([
+   {$project:{populacao: {$sum: "$cidades.populacao"}, sigla:1, _id:0} },
+   { $group: {_id:null, populacaoTotal: {$sum: "$populacao"}} },
+   { $project:{ _id:0, populacaoTotal: 1} }
+])
+
+//outra consulta
+db.estados.aggregate([
+   {$match:{"cidades.nome":"Sorocaba"} },
+   { $unwind: "$cidades"}, //desenpacotou as cidades, cada documento com uma cidade do estado
+   { $match: {"cidades.nome":"Sorocaba"} },
+   { $project:{_id:"$cidades._id"} }
+]).pretty()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
