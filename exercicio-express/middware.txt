@@ -1,0 +1,11 @@
+tem que colocar nas ordens
+middwares em uma outro arquivo
+
+const saudacao = require('./saudacaoMid')
+
+function saudacao(nome) {
+    return function (req, res, next) {
+        console.log(`Seja bem vindo ${nome} `);
+        next()
+    }
+}

@@ -1,0 +1,36 @@
+const app = express()-instanciando o express
+ele retorna a aplicaçao da pra criar rotas, responder as requisições
+
+app.listen(3000) carrega o express escutando na porta 3000
+dependencia somente para desenvolvimento
+
+metodo use, passa por ele sempre
+todas as requisições
+qualquer requisição que chegar passa nessa função
+pois nao colocou nenhum caminho
+o use é aplicado para qualquer tipo de requisição
+app.use((req, res) => {
+    res.send('Estou bem')
+
+app.all suporta as requisições
+})
+
+res.json([
+    {id:7,name:'Ana',position:1},
+    {id:34,name:'Bia',position:2},
+    {id:73,name:'Carlos',position:3},
+    
+])
+forma de resposta - normalmente responde com json
+NAO SOMENTE OBTER OS DADOS MAS ALGUMAS INGORMAÇÕES ADD
+res.json({
+        data:[
+            {id:7,name:'Ana',position:1},
+            {id:34,name:'Bia',position:2},
+            {id:73,name:'Carlos',position:3}
+        ],
+        count:30,
+        skipe:0,
+        limit:3,
+        status:200
+    })

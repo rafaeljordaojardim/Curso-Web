@@ -1,0 +1,18 @@
+FUNDAMENTOS EXPRESS
+npm i --save express - --save para salvar dentro do package json
+
+seguindo o padrao - criando o index.js
+
+versao mais simples de uma api usando exxpress
+
+pm2 monitoriamento mais profissional
+
+pm2 monit - monitoriamento de memoria e tals
+pm2 status -status da aplicacao
+pm2 show 0 para mostrat aplicação 0
+pm2 restart 0
+pm2 stop 0
+pm2 kill - mata o processo
+
+mandando um option ele retorna quais 
+metodos sao suportados pela url
